@@ -1,0 +1,7 @@
+trigger UpdateField on Account(before insert,before update){
+      for(Account acc:trigger.new){
+          if(acc.Industry == 'Banking' || acc.Industry == 'Healthcare'){
+            acc.Rating = 'Hot';    
+      }
+  }
+}
