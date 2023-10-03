@@ -1,0 +1,17 @@
+trigger ContactTrigger on Contact(after insert,after update){
+
+  //trigger to create account when contact is created without Account
+    List<Account> accs = new List<Account>();
+    for(Contact con:trigger.new){
+      Account acc = new Account();
+      acc.name =  con.name;
+      accs.add(acc);
+  }
+
+  if(!acc.isEmpty()){
+    insert accs;
+  }
+
+  
+
+}
